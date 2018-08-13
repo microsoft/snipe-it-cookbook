@@ -1,0 +1,27 @@
+---
+driver:
+  name: azurerm
+  location: 'West US'
+  machine_size: 'Standard_D3_v2'
+  subscription_id: <%= ENV['AZURE_SUBSCRIPTION_ID'] %>
+
+provisioner:
+  product_name: chef
+  product_version: latest
+
+verifier:
+  name: inspec
+  inspec_tests:
+    - test/integration/default
+
+platforms:
+  - name: ubuntu-16.04
+    driver:
+      image_urn: Canonical:UbuntuServer:16.04-LTS:latest
+
+suites:
+  - name: snipe-it-test
+    driver:
+      vm_name: snipe-it-test
+    run_list:
+      - recipe[snipe-it::default]
