@@ -24,6 +24,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+php_socket_path = if platform_family?('debian')
+                    '/run/php/php7.0-fpm'
+                  else
+                    '/var/run/php-fpm/php-fpm'
+                  end
+
 include_recipe 'nginx'
 
 nginx_site 'default' do
@@ -33,11 +39,5 @@ end
 nginx_site 'snipeit' do
   template 'snipeit.erb'
   action :enable
-  variables(
-    if platform_family?('debian')
-      { php_fpm_socket: '/run/php/php7.0-fpm' }
-    else
-      { php_fpm_socket: '/var/run/php-fpm/php-fpm' }
-    end
-  )
+  variables(php_fpm_socket: php_socket_path)
 end
