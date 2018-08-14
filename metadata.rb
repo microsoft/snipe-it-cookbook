@@ -9,5 +9,6 @@ chef_version '>= 12.14' if respond_to?(:chef_version)
 
 issues_url 'https://github.com/Microsoft/snipe-it-cookbook/issues'
 source_url 'https://github.com/Microsoft/snipe-it-cookbook'
+depends 'composer'
 
 depends 'nginx', '~> 8.1'
