@@ -11,6 +11,6 @@ supports 'centos'
 
 issues_url 'https://github.com/Microsoft/snipe-it-cookbook/issues'
 source_url 'https://github.com/Microsoft/snipe-it-cookbook'
-depends 'composer'
 
+depends 'composer', '~> 2.6'
 depends 'nginx', '~> 8.1'
