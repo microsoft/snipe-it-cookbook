@@ -1,11 +1,11 @@
 # # encoding: utf-8
-php_packages = %w(php-bcmath php-curl php-gd php-ldap php-mbstring php-mysql php-pdo php-zip)
+php_packages = %w(php-bcmath php-common php-gd php-ldap php-mbstring php-mysql)
 
 case os.family
 when 'redhat'
-  php_packages.append('php-fpm')
+  php_packages.concat(%w(php-fpm php-pdo))
 when 'debian'
-  php_packages.append('php7.0-fpm')
+  php_packages.concat(%w(php-curl php7.0-fpm php-zip))
 end
 
 php_packages.each do |package|
