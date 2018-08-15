@@ -25,3 +25,5 @@
 # THE SOFTWARE.
 
 include_recipe 'snipe-it::nginx'
+include_recipe 'snipe-it::requirements'
+include_recipe 'snipe-it::php'
