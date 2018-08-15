@@ -24,11 +24,10 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-php_socket_path = if platform_family?('debian')
-                    '/run/php/php7.0-fpm'
-                  else
-                    '/var/run/php-fpm/php-fpm'
-                  end
+php_socket_path = value_for_platform_family(
+  debian: '/run/php/php7.0-fpm',
+  rhel: '/var/run/php-fpm/php-fpm'
+)
 
 include_recipe 'nginx'
 
