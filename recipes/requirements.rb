@@ -24,6 +24,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+%w(database smtp).each do |credential|
+  node.default_unless['snipeit'][credential]['username'] = chef_vault_item('snipeit', credential)['username']
+  node.default_unless['snipeit'][credential]['password'] = chef_vault_item('snipeit', credential)['password']
+end
+
+node.default_unless['snipeit']['php']['app_key'] = chef_vault_item('snipeit', 'app_key')['key']
+
 directory '/var/www' do
   user node['nginx']['user']
   group node['nginx']['group']

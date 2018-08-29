@@ -13,3 +13,4 @@ source_url 'https://github.com/Microsoft/snipe-it-cookbook'
 
 depends 'composer', '~> 2.6'
 depends 'nginx', '~> 8.1'
+depends 'chef-vault', '~> 3.1'
