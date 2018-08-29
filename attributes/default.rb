@@ -15,3 +15,10 @@ default['snipeit']['php']['packages'] = [
   'php-pdo',
   'php-zip',
 ]
+
+default['snipeit']['database']['domain'] = 'corp.yourcompany.com'
+default['snipeit']['database']['hostname'] = node['hostname']
+default['snipeit']['database']['name'] = 'snipeit'
+default['snipeit']['database']['dump_path'] = '/usr/bin'
+default['snipeit']['database']['username'] = nil
+default['snipeit']['database']['password'] = nil
