@@ -3,6 +3,7 @@ default['snipeit']['debug'] = false
 default['snipeit']['doc_root'] = node['snipeit']['path'] + '/public'
 default['snipeit']['locale'] = 'en'
 default['snipeit']['timezone'] = 'US/Pacific'
+default['snipeit']['url'] = 'http://localhost'
 
 default['snipeit']['php']['app_key'] = nil
 default['snipeit']['php']['packages'] = [
