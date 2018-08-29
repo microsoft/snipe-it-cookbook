@@ -36,3 +36,10 @@ git node['snipeit']['path'] do
   user node['nginx']['user']
   group node['nginx']['group']
 end
+
+template node['snipeit']['path'] + '/.env' do
+  source 'env.erb'
+  user node['nginx']['user']
+  group node['nginx']['group']
+  sensitive true
+end
