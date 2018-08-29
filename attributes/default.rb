@@ -1,4 +1,5 @@
 default['snipeit']['path'] = '/var/www/snipeit'
+default['snipeit']['debug'] = false
 default['snipeit']['doc_root'] = node['snipeit']['path'] + '/public'
 
 default['snipeit']['php']['packages'] = [
