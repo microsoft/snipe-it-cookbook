@@ -1,1 +1,25 @@
-queue: 'Hosted Linux Preview'
+resources:
+- repo: self
+  clean: true
+queue:
+  name: Hosted Linux Preview
+steps:
+- task: chef-software.vsts-chef-tasks.vsts-chef-task-install-chefdk.vsts-chef-task-install-chefdk@1
+  displayName: 'Install ChefDK'
+  inputs:
+    chefDKForceInstall: true
+    useSudo: false
+    chefDKChannel: current
+- task: chef-software.vsts-chef-tasks.vsts-chef-task-test-kitchen.vsts-chef-task-test-kitchen@1
+  displayName: 'Execute Test Kitchen: test'
+  inputs:
+    tkAzureEndpoint: 'Microsoft Azure'
+    tkCommand: test
+    tkKitchenFile: .kitchen.azure.yml
+- task: chef-software.vsts-chef-tasks.vsts-chef-task-test-kitchen.vsts-chef-task-test-kitchen@1
+  displayName: 'Execute Test Kitchen: destroy'
+  inputs:
+    tkAzureEndpoint: 'Microsoft Azure'
+    tkCommand: destroy
+    tkKitchenFile: .kitchen.azure.yml
+  condition: always()
