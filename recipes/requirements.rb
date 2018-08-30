@@ -38,7 +38,7 @@ end
 
 git node['snipeit']['path'] do
   repository 'git://github.com/snipe/snipe-it'
-  revision 'master'
+  revision node['snipeit']['version']
   action :sync
   user node['nginx']['user']
   group node['nginx']['group']
