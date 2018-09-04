@@ -3,14 +3,10 @@ server {
     server_name <%= node['hostname'] %>;
 
     root <%= node['snipeit']['doc_root'] %>;
-    index index.php index.html index.htm;
-
-    location / {
-        try_files $uri $uri/ =404;
-    }
+    index index.php;
 
     location ~ \.php$ {
-        try_files $uri $uri/ =404;
+        try_files $uri =404;
         fastcgi_pass unix:<%= @php_fpm_socket %>.sock;
         fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;

@@ -1,6 +1,6 @@
 #
 # Cookbook:: snipe-it-cookbook
-# Recipe:: nginx
+# Recipe:: requirements
 #
 # The MIT License (MIT)
 #
@@ -24,14 +24,15 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-include_recipe 'nginx'
-
-nginx_site 'default' do
-  action :disable
+directory '/var/www' do
+  user node['nginx']['user']
+  group node['nginx']['group']
 end
 
-nginx_site 'snipeit' do
-  template 'snipeit.erb'
-  action :enable
-  variables(php_fpm_socket: '/run/php/php7.0-fpm')
+git node['snipeit']['path'] do
+  repository 'git://github.com/snipe/snipe-it'
+  revision 'master'
+  action :sync
+  user node['nginx']['user']
+  group node['nginx']['group']
 end
