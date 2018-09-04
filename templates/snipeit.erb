@@ -1,13 +1,18 @@
 server {
     listen <%= node['nginx']['port'] -%>;
+    listen [::]:<%= node['nginx']['port'] -%>;
     server_name <%= node['hostname'] %>;
 
     root <%= node['snipeit']['doc_root'] %>;
     index index.php;
 
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+        fastcgi_index index.php;
+    }
+    
     location ~ \.php$ {
         fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        fastcgi_index index.php;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
