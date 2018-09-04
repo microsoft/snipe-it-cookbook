@@ -24,10 +24,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-package 'git' do
-  only_if { platform_family?('rhel') }
-end
-
 directory '/var/www' do
   user node['nginx']['user']
   group node['nginx']['group']

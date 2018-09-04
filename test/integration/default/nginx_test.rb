@@ -1,14 +1,8 @@
 # # encoding: utf-8
 
-php_socket_path = if os.family == 'debian'
-                    '/run/php/php7.0-fpm'
-                  else
-                    '/var/run/php-fpm/php-fpm'
-                  end
-
 describe service('nginx') do
-  it { should be_running }
   it { should be_enabled }
+  it { should be_running }
 end
 
 describe port('80') do
@@ -17,5 +11,5 @@ end
 
 describe file('/etc/nginx/sites-available/snipeit') do
   its('content') { should include('root /var/www/snipeit/public') }
-  its('content') { should include('unix:' + php_socket_path + '.sock') }
+  its('content') { should include('unix:/run/php/php7.0-fpm.sock') }
 end
