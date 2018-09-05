@@ -27,3 +27,11 @@ suites:
       vm_name: snipe-it-test
     run_list:
       - recipe[snipe-it::default]
+    attributes:
+      snipeit:
+        database:
+          domain: <%= ENV['MYSQL_SERVER_DOMAIN'] || '' %>                                                                                                                                                                                                                                                                                                                                                                 mysql.database.azure.com
+          hostname: <%= ENV['MYSQL_SERVER_HOSTNAME'] || 'localhost' %>
+        smtp:
+          host: <%= ENV['SMTP_HOSTNAME'] || 'localhost' %>
+          mailbox: <%= ENV['SMTP_MAILBOX'] || 'mail@localhost' %>
