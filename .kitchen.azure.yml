@@ -30,8 +30,14 @@ suites:
     attributes:
       snipeit:
         database:
-          domain: <%= ENV['MYSQL_SERVER_DOMAIN'] || '' %>                                                                                                                                                                                                                                                                                                                                                                 mysql.database.azure.com
+          domain: <%= ENV['MYSQL_SERVER_DOMAIN'] || '' %>
           hostname: <%= ENV['MYSQL_SERVER_HOSTNAME'] || 'localhost' %>
+          username: <%= ENV['MYSQL_SERVER_USERNAME'] || 'bacon' %>
+          password: <%= ENV['MYSQL_SERVER_PASSWORD'] || 'eggs' %>
+        php:
+          app_key: <%= ENV['APP_KEY'] || 'base64:superinsecurekey' %>
         smtp:
           host: <%= ENV['SMTP_HOSTNAME'] || 'localhost' %>
           mailbox: <%= ENV['SMTP_MAILBOX'] || 'mail@localhost' %>
+          username: <%= ENV['SMTP_USERNAME'] || 'mail@localhost' %>
+          password: <%= ENV['SMTP_PASSWORD'] || 'mymailpassword' %>

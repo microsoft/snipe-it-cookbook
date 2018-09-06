@@ -25,11 +25,15 @@
 # THE SOFTWARE.
 
 %w(database smtp).each do |credential|
-  node.default_unless['snipeit'][credential]['username'] = chef_vault_item('snipeit', credential)['username']
-  node.default_unless['snipeit'][credential]['password'] = chef_vault_item('snipeit', credential)['password']
+  unless node['snipeit'][credential]['username'] && node['snipeit'][credential]['password']
+    node.default['snipeit'][credential]['username'] = chef_vault_item('snipeit', credential)['username']
+    node.default['snipeit'][credential]['password'] = chef_vault_item('snipeit', credential)['password']
+  end
 end
 
-node.default_unless['snipeit']['php']['app_key'] = chef_vault_item('snipeit', 'app_key')['key']
+unless node['snipeit']['php']['app_key']
+  node.default['snipeit']['php']['app_key'] = chef_vault_item('snipeit', 'app_key')['key']
+end
 
 directory '/var/www' do
   user node['nginx']['user']
