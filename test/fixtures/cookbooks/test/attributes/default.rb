@@ -1,9 +1,11 @@
-default['snipeit']['php']['app_key'] = "$(APP_KEY)"
+default['snipeit']['php']['app_key'] = 'base64:hlOgROhQzmjPrfB6T4M3bNvrHPYJExYyItz8e8xV/Fs='
 
-default['snipeit']['database']['domain'] = "$(MYSQL_SERVER_DOMAIN)"
-default['snipeit']['database']['hostname'] = "$(MYSQL_SERVER_HOSTNAME)"
-default['snipeit']['database']['username'] = "$(MYSQL_SERVER_USERNAME)"
-default['snipeit']['database']['password'] = "$(MYSQL_SERVER_PASSWORD)"
+default['snipeit']['database']['domain'] = nil
+default['snipeit']['database']['hostname'] = '127.0.0.1'
+default['snipeit']['database']['username'] = 'databaseuser'
+default['snipeit']['database']['password'] = 'databasepassword'
 
-default['snipeit']['smtp']['username'] = "$(SMTP_USERNAME)"
-default['snipeit']['smtp']['password'] = "$(SMTP_PASSWORD)"
+default['snipeit']['smtp']['username'] = 'smtpuser'
+default['snipeit']['smtp']['password'] = 'smtppassword'
+
+default['snipeit']['debug'] = true

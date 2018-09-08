@@ -24,4 +24,24 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+docker_service 'default' do
+  action [:create, :start]
+end
+
+docker_image 'mysql' do
+  tag '5'
+end
+
+docker_container 'mysql-server' do
+  repo 'mysql'
+  tag '5'
+  port '3306:3306'
+  env [
+    'MYSQL_RANDOM_ROOT_PASSWORD=yes',
+    "MYSQL_DATABASE=#{node['snipeit']['database']['name']}",
+    "MYSQL_USER=#{node['snipeit']['database']['username']}",
+    "MYSQL_PASSWORD=#{node['snipeit']['database']['password']}",
+  ]
+end
+
 include_recipe 'snipe-it'
