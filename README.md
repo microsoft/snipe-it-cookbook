@@ -1,3 +1,6 @@
+| develop | master |
+|---|---|
+| [![Build status](https://office.visualstudio.com/APEX/_apis/build/status/lab/cookbooks/Snipe-IT%20Cookbook%20CI?branchName=develop)](https://office.visualstudio.com/APEX/_build/latest?definitionId=3733) | [![Build status](https://office.visualstudio.com/APEX/_apis/build/status/lab/cookbooks/Snipe-IT%20Cookbook%20CI?branchName=master)](https://office.visualstudio.com/APEX/_build/latest?definitionId=3733) |
 
 # Contributing
 
