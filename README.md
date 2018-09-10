@@ -60,6 +60,28 @@ Many of these attributes match the variables in the Environmental Config file fo
 - `['snipeit']['smtp']['username']` - username for authenticating with the SMTP server. Default is `nil`.
 - `['snipeit']['smtp']['password']` - password for authenticating witn the SMTP server. Default is `nil`.
 
+## Usage
+
+1. Generate the App Key by runnning:
+    - `php artisan key:generate` from the `public` directory of the Snipe-IT repo
+    - `docker run --rm snipe/snip-it`
+
+1. Include the `default` recipe in your run list.
+
+See the [test cookbook](./test/fixtures/cookbooks/test) for an example of an instance running the MySQL database in a container.
+
+Currently, the cookbook will only deploy a standalone install of Snipe-IT on Ubuntu Server 16.04. However, contributions are welcome! Please refer to the [Contributing](#contributing) guidlines below.
+
+## Secrets
+
+This cookbook has a dependency on the Chef Vault cookbook, and by default expects a Chef Vault item unless the related attributes are set in an attributes file, or in a recipe.
+
+1. Set the App Key in a Data Bag or Chef Vault item called `snipeit/app_key`.
+
+1. Provide the credentials for your MySQL database, and your outgoing mail server from a Data Bag or Chef Vault item called `snipeit/database`, and `snipeit/smtp`.
+
+## Contributing
+
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit [https://cla.microsoft.com](https://cla.microsoft.com).
