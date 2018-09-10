@@ -1,6 +1,6 @@
 #
-# Cookbook:: snipe-it-cookbook
-# Recipe:: requirements
+# Cookbook:: test
+# Recipe:: default
 #
 # The MIT License (MIT)
 #
@@ -24,33 +24,24 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-%w(database smtp).each do |credential|
-  unless node['snipeit'][credential]['username'] && node['snipeit'][credential]['password']
-    node.default['snipeit'][credential]['username'] = chef_vault_item('snipeit', credential)['username']
-    node.default['snipeit'][credential]['password'] = chef_vault_item('snipeit', credential)['password']
-  end
+docker_service 'default' do
+  action [:create, :start]
 end
 
-unless node['snipeit']['php']['app_key']
-  node.default['snipeit']['php']['app_key'] = chef_vault_item('snipeit', 'app_key')['key']
+docker_image 'mysql' do
+  tag '5'
 end
 
-directory '/var/www' do
-  user node['nginx']['user']
-  group node['nginx']['group']
+docker_container 'mysql-server' do
+  repo 'mysql'
+  tag '5'
+  port '3306:3306'
+  env [
+    'MYSQL_RANDOM_ROOT_PASSWORD=yes',
+    "MYSQL_DATABASE=#{node['snipeit']['database']['name']}",
+    "MYSQL_USER=#{node['snipeit']['database']['username']}",
+    "MYSQL_PASSWORD=#{node['snipeit']['database']['password']}",
+  ]
 end
 
-git node['snipeit']['path'] do
-  repository 'git://github.com/snipe/snipe-it'
-  revision node['snipeit']['version']
-  action :sync
-  user node['nginx']['user']
-  group node['nginx']['group']
-end
-
-template node['snipeit']['path'] + '/.env' do
-  source 'env.erb'
-  user node['nginx']['user']
-  group node['nginx']['group']
-  sensitive true
-end
+include_recipe 'snipe-it'

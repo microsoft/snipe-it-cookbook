@@ -33,5 +33,4 @@ end
 nginx_site 'snipeit' do
   template 'snipeit.erb'
   action :enable
-  variables(php_fpm_socket: '/run/php/php7.0-fpm')
 end
