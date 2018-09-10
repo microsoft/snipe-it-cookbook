@@ -11,6 +11,7 @@ Configure a self-hosted install of the [Snipe-IT](https://snipeitapp.com/) web a
 ### Platforms
 
 - Ubuntu 16.04
+- MySQL Server 5.7+
 
 ### Chef
 
