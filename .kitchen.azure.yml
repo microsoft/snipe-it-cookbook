@@ -1,7 +1,7 @@
 ---
 driver:
   name: azurerm
-  location: 'West US'
+  location: <%= ENV['AZURE_LOCATION'] %>
   machine_size: 'Standard_D3_v2'
   subscription_id: <%= ENV['AZURE_SUBSCRIPTION_ID'] %>
   vnet_id: /subscriptions/<%= ENV['AZURE_SUBSCRIPTION_ID'] %>/resourceGroups/<%= ENV['AZURE_ER_RESOURCE_GROUP'] %>/providers/Microsoft.Network/virtualNetworks/<%= ENV['AZURE_ER_VNET_NAME'] %>
@@ -23,8 +23,6 @@ platforms:
       image_urn: Canonical:UbuntuServer:16.04-LTS:latest
 
 suites:
-  - name: snipe-it-test
-    driver:
-      vm_name: snipe-it-test
+  - name: install-snipe-it
     run_list:
       - recipe[test::default]
