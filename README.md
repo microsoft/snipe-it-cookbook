@@ -22,6 +22,23 @@ Configure a self-hosted install of the [Snipe-IT](https://snipeitapp.com/) web a
 - chef-vault
 - composer
 - nginx
+
+## Attributes
+
+Many of these attributes match the variables in the Environmental Config file for Snipe-IT. For details on all of the variables available, visit [https://snipe-it.readme.io/docs/configuration](https://snipe-it.readme.io/docs/configuration).
+
+### [Basic App Settings](https://snipe-it.readme.io/docs/configuration#required-basic-app-settings)
+
+- `['snipeit']['debug']` - enable debug mode for Snipe-IT. Default is `false`.
+- `['snipeit']['doc_root']` - the DocumentRoot for Snipe-IT. Default is `/var/www/snipeit/public`.
+- `['snipeit']['locale']` - sets the localization for Snipe-IT. Default is US English - `en`.
+- `['snipeit']['path']` - directory where the Snipe-IT repository will be cloned. Default is `/var/www/snipeit`.
+- `['snipeit']['timezone']` - [PHP-supported timezone string](http://php.net/manual/en/timezones.php). Default is `US/Pacific`.
+- `['snipeit']['url']` - URL that Snipe-IT can be accessed from. Default is `http://localhost`.
+- `['snipeit']['version']` - branch or version tag that will be synced from the Snipe-IT repository on GitHub. Default is `master`.
+- `['snipeit']['php']['app_key']` - randomly generated `base64` key that will encrypt Laravel data. Default is `nil`.
+- `['snipeit']['php']['packages']` - array of packages that are pre-requisites of running Snipe-IT.
+
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit [https://cla.microsoft.com](https://cla.microsoft.com).
