@@ -1,4 +1,3 @@
-default['snipeit']['path'] = '/var/www/snipeit'
 default['snipeit']['debug'] = false
 default['snipeit']['doc_root'] = ::File.join(node['snipeit']['path'], 'public')
 default['snipeit']['hostname'] = node['fqdn'] ? node['fqdn'] : node['hostname']
