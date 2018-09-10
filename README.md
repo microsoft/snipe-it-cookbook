@@ -47,6 +47,19 @@ Many of these attributes match the variables in the Environmental Config file fo
 - `['snipeit']['database']['dump_path']` - path to the MySQL binary in order to run dumps of the database. Default is `/user/bin`.
 - `['snipeit']['database']['username']` - username to connect to the database. Default is `nil`
 - `['snipeit']['database']['password']` - password to connect to the database. Default is `nil`
+
+### [Outgoing Mail Settings](https://snipe-it.readme.io/docs/configuration#required-outgoing-mail-settings)
+
+- `['snipeit']['smtp']['encryption']` - encryption type for sending mail. Options are `null` and `tls`. Default is `tls`.
+- `['snipeit']['smtp']['driver']` - driver for sending mail. Options are `mail`, `sendmail`, and `smtp`. Default is `smtp`.
+- `['snipeit']['smtp']['host']` - hostname string for the SMTP server. Default is `smtp.yourcompany.com`.
+- `['snipeit']['smtp']['mailbox']` - SMTP mailbox username. Default is `myinventory@yourcompany.com`.
+- `['snipeit']['smtp']['port']` - SMTP port for the connection. `25` for unencrypted connections, and `587` for encrypted connections. Default is `587`.
+- `['snipeit']['smtp']['mail_from']` - mail from string for the mailbox. Default is `Snipe-IT`.
+- `['snipeit']['smtp']['replyto']` - reply to string for the mailbox. Default is `Snipe-IT`.
+- `['snipeit']['smtp']['username']` - username for authenticating with the SMTP server. Default is `nil`.
+- `['snipeit']['smtp']['password']` - password for authenticating witn the SMTP server. Default is `nil`.
+
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit [https://cla.microsoft.com](https://cla.microsoft.com).
