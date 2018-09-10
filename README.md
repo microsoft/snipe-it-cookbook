@@ -39,6 +39,14 @@ Many of these attributes match the variables in the Environmental Config file fo
 - `['snipeit']['php']['app_key']` - randomly generated `base64` key that will encrypt Laravel data. Default is `nil`.
 - `['snipeit']['php']['packages']` - array of packages that are pre-requisites of running Snipe-IT.
 
+### [Database Settings](https://snipe-it.readme.io/docs/configuration#required-database-settings)
+
+- `['snipeit']['database']['domain']` - domain that the MySQL server is hosted on. Default is `corp.yourcompany.com`.
+- `['snipeit']['database']['hostname']` - hostname of MySQL server. Default is `node['hostname']`.
+- `['snipeit']['database']['name']` - name of the MySQL database. Default is `snipeit`.
+- `['snipeit']['database']['dump_path']` - path to the MySQL binary in order to run dumps of the database. Default is `/user/bin`.
+- `['snipeit']['database']['username']` - username to connect to the database. Default is `nil`
+- `['snipeit']['database']['password']` - password to connect to the database. Default is `nil`
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit [https://cla.microsoft.com](https://cla.microsoft.com).
