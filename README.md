@@ -1,12 +1,29 @@
-| develop | master |
+# Snipe-IT Cookbook
+
+| master | develop |
 |---|---|
-| [![Build status](https://office.visualstudio.com/APEX/_apis/build/status/lab/cookbooks/Snipe-IT%20Cookbook%20CI?branchName=develop)](https://office.visualstudio.com/APEX/_build/latest?definitionId=3733) | [![Build status](https://office.visualstudio.com/APEX/_apis/build/status/lab/cookbooks/Snipe-IT%20Cookbook%20CI?branchName=master)](https://office.visualstudio.com/APEX/_build/latest?definitionId=3733) |
+| [![Build status](https://office.visualstudio.com/APEX/_apis/build/status/lab/cookbooks/Snipe-IT%20Cookbook%20CI?branchName=master)](https://office.visualstudio.com/APEX/_build/latest?definitionId=3733) | [![Build status](https://office.visualstudio.com/APEX/_apis/build/status/lab/cookbooks/Snipe-IT%20Cookbook%20CI?branchName=develop)](https://office.visualstudio.com/APEX/_build/latest?definitionId=3733) |
 
-# Contributing
+Configure a self-hosted install of the [Snipe-IT](https://snipeitapp.com/) web application using Chef.
 
+## Requirements
+
+### Platforms
+
+- Ubuntu 16.04
+
+### Chef
+
+- Chef 13.0+
+
+### Cookbooks
+
+- chef-vault
+- composer
+- nginx
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
+the rights to use your contribution. For details, visit [https://cla.microsoft.com](https://cla.microsoft.com).
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
 a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
