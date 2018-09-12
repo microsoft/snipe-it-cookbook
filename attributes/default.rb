@@ -20,7 +20,7 @@ default['snipeit']['php']['packages'] = [
 ]
 
 default['snipeit']['database']['domain'] = 'corp.yourcompany.com'
-default['snipeit']['database']['hostname'] = node['hostname']
+default['snipeit']['database']['hostname'] = '127.0.0.1'
 default['snipeit']['database']['name'] = 'snipeit'
 default['snipeit']['database']['dump_path'] = '/usr/bin'
 default['snipeit']['database']['username'] = nil
