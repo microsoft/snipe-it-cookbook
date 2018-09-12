@@ -76,7 +76,7 @@ Rakefile
 #############
 Berksfile
 Berksfile.lock
-cookbooks/*
+*cookbooks/*
 tmp
 
 # Bundler #
