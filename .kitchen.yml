@@ -8,6 +8,8 @@ provisioner:
 
 verifier:
   name: inspec
+  inspec_tests:
+    - test/integration/default
 
 platforms:
   - name: ubuntu-16.04
@@ -16,9 +18,6 @@ platforms:
         - ["forwarded_port", {guest: 80, host: 8080}]
 
 suites:
-  - name: default
+  - name: install-snipe-it
     run_list:
-      - recipe[snipe-it::default]
-    verifier:
-      inspec_tests:
-        - test/integration/default
+      - recipe[test::default]

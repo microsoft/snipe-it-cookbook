@@ -34,3 +34,8 @@ composer_project node['snipeit']['path'] do
   user node['nginx']['user']
   group node['nginx']['group']
 end
+
+execute 'run laravel migrations to setup database' do
+  command ['/usr/bin/php', 'artisan', 'migrate', '--force']
+  cwd node['snipeit']['path']
+end
