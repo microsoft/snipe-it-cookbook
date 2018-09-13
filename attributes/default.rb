@@ -1,4 +1,5 @@
 default['snipeit']['debug'] = false
+default['snipeit']['path'] = '/var/www/snipeit'
 default['snipeit']['doc_root'] = ::File.join(node['snipeit']['path'], 'public')
 default['snipeit']['hostname'] = node['fqdn'] ? node['fqdn'] : node['hostname']
 default['snipeit']['locale'] = 'en'
