@@ -1,9 +1,10 @@
 default['snipeit']['path'] = '/var/www/snipeit'
 default['snipeit']['debug'] = false
-default['snipeit']['doc_root'] = node['snipeit']['path'] + '/public'
+default['snipeit']['doc_root'] = ::File.join(node['snipeit']['path'], 'public')
+default['snipeit']['hostname'] = node['fqdn'] ? node['fqdn'] : node['hostname']
 default['snipeit']['locale'] = 'en'
 default['snipeit']['timezone'] = 'US/Pacific'
-default['snipeit']['url'] = node['fqdn'] ? 'http://' + node['fqdn'] : 'http://' + node['hostname']
+default['snipeit']['url'] = 'http://' << node['snipeit']['hostname']
 default['snipeit']['version'] = 'master'
 
 default['snipeit']['php']['app_key'] = nil
