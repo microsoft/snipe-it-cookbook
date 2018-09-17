@@ -1,0 +1,28 @@
+---
+driver:
+  name: azurerm
+  location: <%= ENV['AZURE_LOCATION'] %>
+  machine_size: 'Standard_D3_v2'
+  subscription_id: <%= ENV['AZURE_SUBSCRIPTION_ID'] %>
+  vnet_id: /subscriptions/<%= ENV['AZURE_SUBSCRIPTION_ID'] %>/resourceGroups/<%= ENV['AZURE_ER_RESOURCE_GROUP'] %>/providers/Microsoft.Network/virtualNetworks/<%= ENV['AZURE_ER_VNET_NAME'] %>
+  subnet_id: Subnet-1
+
+provisioner:
+  product_name: chef
+  product_version: latest
+  data_bags_path: test/fixtures/data_bags
+
+verifier:
+  name: inspec
+  inspec_tests:
+    - test/integration/default
+
+platforms:
+  - name: ubuntu-16.04
+    driver:
+      image_urn: Canonical:UbuntuServer:16.04-LTS:latest
+
+suites:
+  - name: install-snipe-it
+    run_list:
+      - recipe[test::default]
