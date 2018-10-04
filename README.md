@@ -64,7 +64,7 @@ Many of these attributes match the variables in the Environmental Config file fo
 
 1. Generate the App Key by runnning:
     - `php artisan key:generate` from the `public` directory of the Snipe-IT repo
-    - `docker run --rm snipe/snip-it`
+    - `docker run --rm snipe/snipe-it`
 
 1. Include the `default` recipe in your run list.
 
